@@ -1,1 +1,9 @@
+twitter
 matplotlib
+pytest
+pytest-cov
+config
+tweepy
+yweather
+woeid
+Flask

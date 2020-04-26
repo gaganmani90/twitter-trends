@@ -3,3 +3,5 @@
 .idea/
 python-programming.iml
 venv/
+test/career_growth/
+*__pycache__*
