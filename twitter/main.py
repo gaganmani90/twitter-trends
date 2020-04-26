@@ -1,22 +1,21 @@
 import io
-import random
-from flask import Flask, render_template, Response
+import json
 import logging
 
+from flask import Flask, render_template, Response
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
 
-from twitter import twitter_trends
-from twitter.visualize import visualize_trend
+from twitter.model import twitter_trends
+from twitter.model.trend_visualizer import visualize_trends
+from twitter.util.utility_functions import trends_to_string_util
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
-    trends, size = twitter_trends.trends_by_location()
-    webpage = "".join(["Gagan \n", "\n".join(map(str, trends))])
-    #return render_template("index.html", message=webpage)
+    trends = twitter_trends.trends_by_location()
+    webpage = trends_to_string_util(trends)
     return render_template("home.html", message=webpage)
 
 
@@ -24,12 +23,13 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route("/trends.png")
-def visualize():
-    trends, size = twitter_trends.trends_by_location()
-    fig = visualize_trend(trends)
+
+@app.route("/<location>.png")
+def visualize(location):
+    trends = twitter_trends.trends_by_location(woeids=[location])
+    fig = visualize_trends(trends)
     output = io.BytesIO()
-    FigureCanvas(fig).print_png(output)
+    FigureCanvas(fig[0]).print_png(output)
     return Response(output.getvalue(), mimetype='image/png')
 
 

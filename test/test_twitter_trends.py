@@ -1,14 +1,12 @@
 import unittest
-from twitter import twitter_trends
-from twitter.twitter_trends import Trend
+from twitter.model import twitter_trends
 
 
 class Test(unittest.TestCase):
 
     def test_trends(self):
-        trends, size = twitter_trends.trends_by_location()
-        print("\n".join(map(str, trends)))
-        print(size)
+        trends = twitter_trends.trends_by_location()
+        print(trends)
         assert len(trends) != 0
         twitter_trends.print_user_details("shivani0811")
 

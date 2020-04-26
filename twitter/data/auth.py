@@ -1,5 +1,5 @@
 import tweepy
-import config
+from twitter import config
 
 
 def tweeter_api():
