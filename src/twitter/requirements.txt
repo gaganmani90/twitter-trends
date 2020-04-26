@@ -6,4 +6,8 @@ config
 tweepy
 yweather
 woeid
-Flask
+flask
+Werkzeug
+google
+google-cloud-storage
+gunicorn==20.0.4
