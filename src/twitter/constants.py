@@ -9,3 +9,7 @@ LOCATION_INDIA_KOLKATA = "2295386"
 
 TREND_NAME='name'
 TREND_VOLUME='tweet_volume'
+
+# CACHE KEYS
+TRENDS_VOLUME = "trends"
+TREND_COUNT = "size"

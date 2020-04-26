@@ -3,8 +3,11 @@ import json
 import yweather
 import sys
 
+import logging
+
+from twitter import cache
 from twitter.auth import tweeter_api
-from twitter.constants import LOCATION_INDIA, TREND_NAME, TREND_VOLUME
+from twitter.constants import LOCATION_INDIA, TREND_NAME, TREND_VOLUME, TRENDS_VOLUME, TREND_COUNT
 
 sys.path.append(".")
 
@@ -29,9 +32,17 @@ def trends_by_location(woeid=LOCATION_INDIA):
     :return:
     """
     # woeid_lookup("")
-    india_trends = api.trends_place(woeid)
-    trends = json.loads(json.dumps(india_trends))
-    fields, size = parse_trends(trends[0])
+    if cache.get_cache(TRENDS_VOLUME) is None:
+        logging.info("cache hit")
+        india_trends = api.trends_place(woeid)
+        trends = json.loads(json.dumps(india_trends))
+        fields, size = parse_trends(trends[0])
+        cache.update_cache(TRENDS_VOLUME, fields)
+        cache.update_cache(TREND_COUNT, size)
+        return fields, size
+
+    fields = cache.get_cache(TRENDS_VOLUME)
+    size = cache.get_cache(TREND_COUNT)
     return fields, size
 
 

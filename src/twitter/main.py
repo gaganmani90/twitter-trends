@@ -1,7 +1,13 @@
-from flask import Flask, render_template
+import io
+import random
+from flask import Flask, render_template, Response
 import logging
 
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+
 from twitter import twitter_trends
+from twitter.visualize import visualize_trend
 
 app = Flask(__name__)
 
@@ -17,6 +23,14 @@ def home():
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+@app.route("/trends.png")
+def visualize():
+    trends, size = twitter_trends.trends_by_location()
+    fig = visualize_trend(trends)
+    output = io.BytesIO()
+    FigureCanvas(fig).print_png(output)
+    return Response(output.getvalue(), mimetype='image/png')
 
 
 @app.errorhandler(500)
