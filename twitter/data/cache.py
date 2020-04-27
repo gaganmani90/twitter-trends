@@ -9,3 +9,11 @@ def get_cache(key):
     if key in trends_cache.keys():
         return trends_cache[key]
     return None
+
+
+def size():
+    return len(trends_cache)
+
+
+def invaludate():
+    trends_cache.clear()

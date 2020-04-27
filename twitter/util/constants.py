@@ -13,6 +13,7 @@ TREND_VOLUME = 'tweet_volume'
 # CACHE KEYS
 TRENDS_VOLUME = "trends"
 TREND_COUNT = "size"
+GRAPH = "graphs"
 
 
 def get_location_map():

@@ -7,4 +7,7 @@ setup(
     install_requires=[
         'flask',
     ],
+    author='Gagan Mani',
+    author_email="gaganmani90@gmail.com",
+    version="1.0.0"
 )
