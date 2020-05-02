@@ -1,9 +1,11 @@
+
 import io
-import json
 import logging
 
+import matplotlib
 from flask import Flask, render_template, Response
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+matplotlib.use('Agg')
 
 from twitter.model import twitter_trends
 from twitter.model.trend_visualizer import visualize_trends
@@ -35,7 +37,7 @@ def visualize(location):
 
 @app.errorhandler(500)
 def server_error(e):
-    logging.exception('Gagan Mani: An error occurred during a request.')
+    logging.exception('An error occurred during a request.')
     return """
     An internal error occurred: <pre>{}</pre>
     See logs for full stacktrace.
@@ -43,4 +45,5 @@ def server_error(e):
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8080, debug=True)
+
+    app.run(port=8080, debug=True)
