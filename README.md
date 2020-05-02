@@ -17,8 +17,14 @@ python --version #verify python version
 ```
 
 #### 4. Run
-* Go to root directory
-* `.bin/run_local.sh`
+Go to root directory
+* Unit tests run: `pytest`. These runs make twitter api call so be cautious and do not 
+make too many calls.
+* App run
+    ```shell script
+    python setup.py build
+    .bin/run_local.sh
+    ```
 
 
 

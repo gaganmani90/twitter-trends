@@ -5,3 +5,9 @@ python-programming.iml
 venv/
 test/career_growth/
 *__pycache__*
+vflask
+India.png
+Nagpur.png
+build
+dist
+twitter.egg-info
