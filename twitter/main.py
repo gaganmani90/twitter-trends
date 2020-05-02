@@ -2,28 +2,32 @@ import io
 import logging
 
 import matplotlib
-from flask import Flask, render_template, Response, make_response, send_file
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from flask import Flask, render_template, send_file
 
-from twitter.data import cache
-from twitter.util.constants import GRAPH, get_location_map
+from twitter.util.location_util import *
 
 matplotlib.use('Agg')
 
 from twitter.model import twitter_trends
 from twitter.model.trend_visualizer import visualize_trends
-from twitter.util.utility_functions import trends_to_string_util, get_location_from_woeid
+from twitter.util.utility_functions import trends_to_string_util
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("Twitter Trends")
+logger = logging.getLogger("[Twitter Trends] ")
+
+
+@app.before_first_request
+def setup():
+    logger.info("Initializing ...")
+    populate_location_map()
 
 
 @app.route("/")
 def home():
-    locations = get_location_map()
+    locations = get_woeid_to_location()
     # expensive call (do not uncomment)
-    #trends = twitter_trends.trends_by_location(locations.keys())
+    # trends = twitter_trends.trends_by_location(locations.keys())
 
     trends = twitter_trends.trends_by_location()
     webpage = trends_to_string_util(trends)
@@ -37,7 +41,7 @@ def about():
 
 @app.route('/images/<location>')
 def images(location):
-    place=get_location_from_woeid(location)
+    place = get_location_from_woeid(location)
     return render_template("images.html", woeid=location, place=place)
 
 
@@ -60,7 +64,6 @@ def server_error(e):
     An internal error occurred: <pre>{}</pre>
     See logs for full stacktrace.
     """.format(e), 500
-
 
 
 if __name__ == "__main__":

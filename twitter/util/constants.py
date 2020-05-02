@@ -1,3 +1,5 @@
+import os
+
 LOCATION_INDIA = "23424848"  # PARENT ID
 LOCATION_INDIA_NAGPUR = "2282863"
 LOCATION_INDIA_JAIPUR = "2295401"
@@ -17,19 +19,9 @@ TRENDS_VOLUME = "trends"
 TREND_COUNT = "size"
 GRAPH = "graphs"
 
-
-def get_location_map():
-    location = dict()
-    location["23424848"] = 'India'
-    location["2282863"] = 'Nagpur'
-    location["2295401"] = 'Jaipur'
-    location["2295377"] = 'Lucknow'
-    location["2295378"] = 'Kanpur'
-    location["2295381"] = 'Patna'
-    location["2295383"] = 'Ranchi'
-    location["2295386"] = 'Kolkata'
-    location["2490383"] = 'Seattle'
-    location["2459115"] = 'NY'
-    return location
-
+# location json file
+LOCATION_NAME = "places.json"  # all woeid
+LOCATION_PATH = os.path.join('twitter', 'util', LOCATION_NAME)
+KEY_WOEID = 'woeid'
+KEY_NAME = 'name'
 

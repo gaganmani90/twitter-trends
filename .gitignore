@@ -11,3 +11,4 @@ Nagpur.png
 build
 dist
 twitter.egg-info
+*.pyc

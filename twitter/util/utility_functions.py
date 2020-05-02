@@ -1,5 +1,6 @@
-from twitter.util.constants import TREND_VOLUME, TREND_NAME, get_location_map
+from twitter.util.constants import TREND_VOLUME, TREND_NAME
 from twitter.model.trend import Trend
+from twitter.util.location_util import get_location_from_woeid
 
 
 def _parse_trends(json_data):
@@ -29,6 +30,3 @@ def trends_to_string_util(trendsMap):
         webpage = header + body
     return webpage
 
-
-def get_location_from_woeid(woied):
-    return get_location_map()[woied]

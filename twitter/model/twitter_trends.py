@@ -8,22 +8,12 @@ import logging
 from twitter.data import cache
 from twitter.data.auth import tweeter_api
 from twitter.util.constants import LOCATION_INDIA, TRENDS_VOLUME
-from twitter.util.utility_functions import _parse_trends, get_location_from_woeid
+from twitter.util.utility_functions import _parse_trends
+from twitter.util.location_util import get_location_from_woeid
 
 sys.path.append(".")
 
 api = tweeter_api()
-
-
-def available_trend():
-    """
-    Returns the locations that Twitter has trending topic information for.
-    The response is an array of “locations” that encode the location’s WOEID (a Yahoo! Where On Earth ID) and
-    some other human-readable information such as a canonical name and country the location belongs in
-    :return:
-    """
-    locations = api.trends_available()
-    print(locations)
 
 
 def trends_by_location(woeids=[LOCATION_INDIA]):

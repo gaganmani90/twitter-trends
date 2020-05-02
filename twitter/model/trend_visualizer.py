@@ -2,8 +2,7 @@ import logging
 
 import matplotlib.pyplot as plt
 
-from twitter.util.utility_functions import get_location_from_woeid
-
+from twitter.util.location_util import get_location_from_woeid
 
 def _visualize_trend(location, trend):
     topic = [x.name for idx, x in enumerate(trend[:20])]
