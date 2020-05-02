@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if(e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+    }
+
+</script>
 <head>
     <meta charset="utf-8">
-    <title>Flask Tutorial</title>
+    <title>Twitter Trends</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 {% extends "template.html" %}
 {% block content %}
 <h3>Visualize</h3>
-<p align="center">
-    <!-- For loop logic of jinja template -->
-{% include 'graphs/india.html' %}
-</p>
-<h3> All Trends </h3>
+<ul class="unordered-list">
+    {% for key,value in map.items() %}
+    <div id={{key}}>
+        <li class="list-item">
+            <a class=list-item-link target="_blank" rel="noopener noreferrer" href="{{url_for('images',location=key)}}" onclick="toggle_visibility({{key}})">{{value}}</a>
+        </li>
+    </div>
+    {% endfor %}
+</ul>
+<h3> Sample Trend </h3>
 <p> {{message}} </p>
 {% endblock %}
 

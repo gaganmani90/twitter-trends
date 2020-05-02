@@ -15,5 +15,5 @@ def size():
     return len(trends_cache)
 
 
-def invaludate():
+def invalidate():
     trends_cache.clear()

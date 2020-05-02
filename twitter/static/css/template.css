@@ -4,3 +4,25 @@
   margin-right: auto;
   width: 50%;
 }
+
+.unordered-list {
+    list-style: none;
+}
+.list-item {
+    min-height: 50px;
+    position: relative;
+}
+.list-item-link {
+    width: 100%;
+}
+.list-item-link:after {
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.list-item-link-description {
+    margin: 0;
+}

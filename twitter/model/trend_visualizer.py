@@ -1,7 +1,7 @@
+import logging
+
 import matplotlib.pyplot as plt
 
-from twitter.data import cache
-from twitter.util.constants import GRAPH
 from twitter.util.utility_functions import get_location_from_woeid
 
 
@@ -13,13 +13,13 @@ def _visualize_trend(location, trend):
 
 
 def _get_graph_figure(labels=[], values=[], title="My Graph"):
+    plt.clf() # clear
     plt.xlabel(labels[0])
     plt.ylabel(labels[1])
     plt.title(title)
     plt.barh(values[0], values[1])
     axis = plt.gca()
-    axis.invert_yaxis()
-    #axis.get_xaxis().get_major_formatter().set_useOffset(False)
+    #axis.invert_yaxis()
     plt.tight_layout()
     # plt.savefig("static/images/"+title)
     # plt.show()
@@ -27,13 +27,10 @@ def _get_graph_figure(labels=[], values=[], title="My Graph"):
 
 
 def visualize_trends(trends: dict):
+    logging.info("Start: visualizing trends, trends length: {}".format(len(trends)))
+    logging.debug(trends)
     figures = []
     for woeid, trend in trends.items():
-        key = woeid + "_" + GRAPH
-        if cache.get_cache(key):
-            figures.append(cache.get_cache(key))
-        else:
             graph = _visualize_trend(get_location_from_woeid(woeid), trend)
-            cache.update_cache(key, graph)
             figures.append(graph)
     return figures

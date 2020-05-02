@@ -6,6 +6,8 @@ LOCATION_INDIA_KANPUR = "2295378"
 LOCATION_INDIA_PATNA = "2295381"
 LOCATION_INDIA_RANCHI = "2295383"
 LOCATION_INDIA_KOLKATA = "2295386"
+SEATTLE = "2490383"
+NY = "2459115"
 
 TREND_NAME = 'name'
 TREND_VOLUME = 'tweet_volume'
@@ -26,6 +28,8 @@ def get_location_map():
     location["2295381"] = 'Patna'
     location["2295383"] = 'Ranchi'
     location["2295386"] = 'Kolkata'
+    location["2490383"] = 'Seattle'
+    location["2459115"] = 'NY'
     return location
 
 
