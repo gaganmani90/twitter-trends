@@ -23,5 +23,6 @@ GRAPH = "graphs"
 LOCATION_NAME = "places.json"  # all woeid
 LOCATION_PATH = os.path.join('twitter', 'util', LOCATION_NAME)
 KEY_WOEID = 'woeid'
+KEY_PARENT_ID = 'parentid'
 KEY_NAME = 'name'
 

@@ -59,3 +59,6 @@ input[type=submit] {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
+nav ol{height:200px; width:18%;}
+nav ol{overflow:hidden; overflow-y:scroll;}

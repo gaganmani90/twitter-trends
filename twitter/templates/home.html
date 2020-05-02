@@ -12,16 +12,24 @@
 <body>
 {% extends "template.html" %}
 {% block content %}
-<h3>Visualize</h3>
-<ol type="1">
-    {% for key,value in map.items() %}
-    <div id={{key}}>
-        <li class="list-item">
-            <a class=list-item-link target="_blank" rel="noopener noreferrer"
-               href="{{url_for('images',location=key)}}">{{value}}</a>
-        </li>
-    </div>
+<h3>Visualize by countries</h3>
+<ol id="sss" type="1">
+    {% for parent_model,children in locations_by_parent.items() %}
+    <li>
+        <a target="_blank" rel="noopener noreferrer"
+           href="{{url_for('images',location=parent_model.get_woeid)}}">{{parent_model.get_name}}</a>
+        <ul>
+            {% for child in children %}
+            <li>
+                <a target="_blank" rel="noopener noreferrer"
+                   href="{{url_for('images',location=child.get_woeid)}}">{{child.get_name}}</a>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </li>
     {% endfor %}
+</ol>
 </ol>
 <h3> Sample Trend </h3>
 <p> {{message}} </p>

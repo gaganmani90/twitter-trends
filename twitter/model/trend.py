@@ -10,7 +10,7 @@ class Trend(JSONEncoder):
         return "".join([self.name, ": ", str(self.volume)])
 
     def __eq__(self, other):
-        return self.volume, self.name == other.volume, other.name
+        return self.volume, self.name == other.volume, other._name
 
     def __lt__(self, other):
         return self.volume > other.volume

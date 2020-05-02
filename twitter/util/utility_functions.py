@@ -1,6 +1,6 @@
 from twitter.util.constants import TREND_VOLUME, TREND_NAME
 from twitter.model.trend import Trend
-from twitter.util.location_util import get_location_from_woeid
+from twitter.util.location_util import location_from_woeid
 
 
 def _parse_trends(json_data):
@@ -25,7 +25,7 @@ def _parse_trends(json_data):
 def trends_to_string_util(trendsMap):
     webpage = ''
     for location, trends in trendsMap.items():
-        header = ''.join([get_location_from_woeid(location), ": "])
+        header = ''.join([location_from_woeid(location), ": "])
         body = '\n'.join(map(str, trends))
         webpage = header + body
     return webpage

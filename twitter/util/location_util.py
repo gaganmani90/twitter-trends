@@ -1,9 +1,11 @@
-import json, os
+import json
 
+from twitter.model.location_model import Location, LocationModel
 from twitter.util.constants import *
 
 _location_to_woeid = dict()
 _woeid_to_location = dict()
+_location_models = dict()
 
 
 def populate_location_map():
@@ -13,12 +15,35 @@ def populate_location_map():
         for location in locations_data:
             name = location[KEY_NAME]
             woeid = location[KEY_WOEID]
+            parent_id = location[KEY_PARENT_ID]
             _location_to_woeid[name] = woeid
             _woeid_to_location[woeid] = name
-    return _location_to_woeid, _woeid_to_location
+            _update_location_model(name, woeid, parent_id)
 
 
-def get_location_to_woeid():
+def _update_location_model(name, woeid, parent_id):
+    if parent_id == 0:
+        location = Location(woeid, name)
+        _location_models[location] = []
+    elif parent_id == 1:
+        location = Location(woeid, name)
+        if location in _location_models:
+            _location_models[location] = _location_models.pop(location)
+        else:
+            _location_models[location] = []
+    else:
+        _location_models.setdefault((Location(parent_id)), []).append(Location(woeid, name=name))
+
+
+def location_models():
+    return _location_models
+
+
+def child_models(parent_id):
+    return _location_models[Location(parent_id)]
+
+
+def location_to_woeid_map():
     if _location_to_woeid is not None:
         return _location_to_woeid
     else:
@@ -26,12 +51,13 @@ def get_location_to_woeid():
         return _location_to_woeid
 
 
-def get_woeid_to_location():
+def woeid_to_location_map():
     if _woeid_to_location is not None:
         return _woeid_to_location
     else:
         populate_location_map()
         return _woeid_to_location
 
-def get_location_from_woeid(woied):
+
+def location_from_woeid(woied):
     return _woeid_to_location[int(woied)]

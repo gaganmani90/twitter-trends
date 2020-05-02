@@ -25,13 +25,14 @@ def setup():
 
 @app.route("/")
 def home():
-    locations = get_woeid_to_location()
+    locations = woeid_to_location_map()
+    locations_by_parent = location_models()
     # expensive call (do not uncomment)
     # trends = twitter_trends.trends_by_location(locations.keys())
 
     trends = twitter_trends.trends_by_location()
     webpage = trends_to_string_util(trends)
-    return render_template("home.html", message=webpage, map=locations)
+    return render_template("home.html", message=webpage, map=locations, locations_by_parent=locations_by_parent)
 
 
 @app.route("/about")
@@ -41,13 +42,13 @@ def about():
 
 @app.route('/images/<location>')
 def images(location):
-    place = get_location_from_woeid(location)
+    place = location_from_woeid(location)
     return render_template("images.html", woeid=location, place=place)
 
 
 @app.route("/visualize/<location>")
 def visualize(location):
-    logger.info("visualizing location: " + get_location_from_woeid(location))
+    logger.info("visualizing location: " + location_from_woeid(location))
     trends = twitter_trends.trends_by_location(woeids=[location])
     fig = visualize_trends(trends)
     fig = fig[0]
