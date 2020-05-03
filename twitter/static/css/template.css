@@ -70,4 +70,6 @@ li {
   column-count: 1;
   column-rule-style: solid;
   column-rule-color: lightblue;
+  column-fill: auto;
+  column-rule: 4px double #ff00ff;
 }
