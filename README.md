@@ -9,9 +9,10 @@
     source bin/activate
 ```
 #### 3. Install dependencies
+From root: 
 ```.shell script
-pip freeze -r ../twitter/requirements.txt 
-pip install -r ../twitter/requirements.txt
+pip freeze -r requirements.txt 
+pip install -r requirements.txt
 pip list #verify package list
 python --version #verify python version
 ```
