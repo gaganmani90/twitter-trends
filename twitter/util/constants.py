@@ -20,8 +20,8 @@ TREND_COUNT = "size"
 GRAPH = "graphs"
 
 # location json file
-LOCATION_NAME = "places.json"  # all woeid
-LOCATION_PATH = os.path.join('twitter', 'util', LOCATION_NAME)
+LOCATION_FILE_NAME = "places.json"  # all woeid
+LOCATION_PATH = os.path.join('twitter', 'util', LOCATION_FILE_NAME)
 KEY_WOEID = 'woeid'
 KEY_PARENT_ID = 'parentid'
 KEY_NAME = 'name'

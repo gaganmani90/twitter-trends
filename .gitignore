@@ -12,3 +12,4 @@ build
 dist
 twitter.egg-info
 *.pyc
+.DS_store

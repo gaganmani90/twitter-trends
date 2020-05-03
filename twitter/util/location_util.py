@@ -2,6 +2,7 @@ import json
 
 from twitter.model.location_model import Location, LocationModel
 from twitter.util.constants import *
+from twitter.util.file_utility import get_location_json_path
 
 _location_to_woeid = dict()
 _woeid_to_location = dict()
@@ -9,7 +10,8 @@ _location_models = dict()
 
 
 def populate_location_map():
-    file_location = os.path.join('..', LOCATION_PATH)
+    # file_location = os.path.join('..', LOCATION_PATH)
+    file_location = get_location_json_path()
     with open(file_location) as json_file:
         locations_data = json.load(json_file)
         for location in locations_data:
