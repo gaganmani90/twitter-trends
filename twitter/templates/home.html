@@ -13,24 +13,29 @@
 {% extends "template.html" %}
 {% block content %}
 <h3>Visualize by countries</h3>
-<ol id="sss" type="1">
-    {% for parent_model,children in locations_by_parent.items() %}
-    <li>
-        <a target="_blank" rel="noopener noreferrer"
-           href="{{url_for('images',location=parent_model.get_woeid)}}">{{parent_model.get_name}}</a>
-        <ul>
-            {% for child in children %}
-            <li>
+<div class="trends_list">
+    <ol id="sss" type="1">
+        {% for parent_model,children in locations_by_parent.items() %}
+        <li>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{parent_model.get_woeid}}">
                 <a target="_blank" rel="noopener noreferrer"
-                   href="{{url_for('images',location=child.get_woeid)}}">{{child.get_name}}</a>
-            </li>
+                   href="{{url_for('images',location=parent_model.get_woeid)}}">{{parent_model.get_name}}:{{children| count}}</a>
+            </button>
+            <div id="{{parent_model.get_woeid}}" class="collapse">
+                <ul>
+                    {% for child in children %}
+                    <li>
+                        <a target="_blank" rel="noopener noreferrer"
+                           href="{{url_for('images',location=child.get_woeid)}}">{{child.get_name}}</a>
+                    </li>
 
-            {% endfor %}
-        </ul>
-    </li>
-    {% endfor %}
-</ol>
-</ol>
+                    {% endfor %}
+                </ul>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
 <h3> Sample Trend </h3>
 <p> {{message}} </p>
 {% endblock %}

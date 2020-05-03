@@ -60,5 +60,14 @@ input[type=submit] {
   color: #ffffff;
 }
 
-nav ol{height:200px; width:18%;}
-nav ol{overflow:hidden; overflow-y:scroll;}
+li {
+    display: block;
+    width: 25%;
+    float: left;
+}
+
+.trends_list {
+  column-count: 1;
+  column-rule-style: solid;
+  column-rule-color: lightblue;
+}
