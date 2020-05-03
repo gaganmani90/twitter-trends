@@ -15,6 +15,9 @@ class Trend(JSONEncoder):
     def __lt__(self, other):
         return self.volume > other.volume
 
+    def __hash__(self):
+        return self.name.__hash__()+self.volume.__hash__()
+
 
 class Trends(JSONEncoder):
     def __init__(self, trends: list, location: str):

@@ -12,3 +12,4 @@ google
 google-cloud-storage
 gunicorn==20.0.4
 flask-table
+cachetools

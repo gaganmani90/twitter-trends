@@ -1,15 +1,17 @@
 #!/usr/bin/env python
 import json
-import yweather
 import sys
 
-import logging
+import yweather
+from cachetools import cached
 
 from twitter.data import cache
 from twitter.data.auth import tweeter_api
-from twitter.util.constants import LOCATION_INDIA, TRENDS_VOLUME
-from twitter.util.utility_functions import _parse_trends
+from twitter.data.cache import trends_cache
+from twitter.trends_logger import trends_logger
+from twitter.util.constants import LOCATION_INDIA
 from twitter.util.location_util import location_from_woeid
+from twitter.util.utility_functions import _parse_trends
 
 sys.path.append(".")
 
@@ -30,18 +32,12 @@ def trends_by_location(woeids=[LOCATION_INDIA]):
     return trends
 
 
+@cached(trends_cache)
 def _trend_for_one_location(woeid):
-    # woeid_lookup("")
-    if cache.get_cache(woeid) is None:
-        logging.info("MISS: making trends_place api call for {}".format(location_from_woeid(woeid)))
-        india_trends = api.trends_place(woeid)
-        trends = json.loads(json.dumps(india_trends))
-        fields = _parse_trends(trends[0])
-        cache.update_cache(woeid, fields)
-        return fields
-
-    logging.info("HIT: trends_place api cache hit for {}".format(location_from_woeid(woeid)))
-    fields = cache.get_cache(woeid)
+    trends_logger.info("Twitter API call: trends_place api call for {}".format(location_from_woeid(woeid)))
+    india_trends = api.trends_place(woeid)
+    trends = json.loads(json.dumps(india_trends))
+    fields = _parse_trends(trends[0])
     return fields
 
 
@@ -59,5 +55,3 @@ def print_user_details(user_name='gaganmani90'):
 
 def keySort(trend):
     return trend.volume
-
-
