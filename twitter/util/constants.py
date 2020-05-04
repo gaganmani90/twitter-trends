@@ -26,3 +26,4 @@ KEY_WOEID = 'woeid'
 KEY_PARENT_ID = 'parentid'
 KEY_NAME = 'name'
 
+LOG_CONFIG_NAME = "logging_config.ini"
