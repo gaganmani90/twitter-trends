@@ -4,6 +4,7 @@ from json import JSONEncoder
 class Trend(JSONEncoder):
     def __init__(self, name, volume="mock"):
         self.name = name if name is not None else ""
+        # The tweet_volume for the last 24 hours is also returned for many trends if this is available
         self.volume = volume if volume is not None else 0
 
     def __str__(self):
@@ -16,7 +17,7 @@ class Trend(JSONEncoder):
         return self.volume > other.volume
 
     def __hash__(self):
-        return self.name.__hash__()+self.volume.__hash__()
+        return self.name.__hash__() + self.volume.__hash__()
 
 
 class Trends(JSONEncoder):
@@ -26,3 +27,10 @@ class Trends(JSONEncoder):
 
     def addTrend(self, trend: Trend):
         self.trends.append(trend)
+
+
+class TopTrendingTopic:
+    def __init__(self):
+        self.country = ''
+        self.location = ''
+        self.volume = 0

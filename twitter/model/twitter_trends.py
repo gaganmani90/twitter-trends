@@ -5,7 +5,6 @@ import sys
 import yweather
 from cachetools import cached
 
-from twitter.data import cache
 from twitter.data.auth import tweeter_api
 from twitter.data.cache import trends_cache
 from twitter.trends_logger import trends_logger
@@ -53,5 +52,4 @@ def print_user_details(user_name='gaganmani90'):
     print(user.friends_count)
 
 
-def keySort(trend):
-    return trend.volume
+
