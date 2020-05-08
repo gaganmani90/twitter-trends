@@ -28,10 +28,7 @@ make too many calls.
     ```
 * `gunicorn -b :8080 twitter.main:app`: This command will run server with gunicorn. You do not have to use it unless
 you want to deploy it on gcloud.
---- 
-## TODO
-* Integrate with Google Firebase 
-* Interpret twitter hashtags
-* Interpret common trends across countries
-* UI improvements
+
+## Platform independence with Docker
+
 
