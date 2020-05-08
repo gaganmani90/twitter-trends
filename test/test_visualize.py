@@ -1,11 +1,15 @@
 import unittest
 
-from twitter.util.constants import get_location_map
 from twitter.model import twitter_trends
 from twitter.model.trend_visualizer import visualize_trends
+from twitter.util.location_util import populate_location_map
 
 
 class MyTestCase(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        populate_location_map()
 
     def test_visualize_trend(self):
         #trends = twitter_trends.trends_by_location(woeids=get_location_map().keys())
