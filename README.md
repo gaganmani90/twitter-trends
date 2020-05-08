@@ -1,4 +1,4 @@
-# Twitter Trends
+# Trends
 
 ## How to use this package
 #### 1. Fork the repository 
@@ -29,6 +29,12 @@ make too many calls.
 * `gunicorn -b :8080 twitter.main:app`: This command will run server with gunicorn. You do not have to use it unless
 you want to deploy it on gcloud.
 
-## Platform independence with Docker
+## With Docker (no git clone needed)
+This is docker compatible application that you can run with docker image as well. 
+* Install docker from [here](https://docs.docker.com/get-docker/) 
+* `docker build .`
+* `docker images`: get image id 
+* `docker run -p 5001:5001 <image id>`
+* If you are too lazy to checkout code, you can direclty download docker image from [dockerhub](https://hub.docker.com/repository/docker/gaganmani90/trends/tags)
 
 
