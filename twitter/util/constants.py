@@ -29,3 +29,8 @@ KEY_PARENT_ID = 'parentid'
 KEY_NAME = 'name'
 
 LOG_CONFIG_NAME = "logging_config.ini"
+
+# database
+DB_NAME = 'twitter_trends'
+TABLE_LOCATION = 'LOCATION'
+TABLE_TREND = 'TREND'

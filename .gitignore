@@ -13,3 +13,6 @@ dist
 twitter.egg-info
 *.pyc
 .DS_store
+test/database/twitter_trends
+twitter/data/database/test.db
+twitter/data/database/twitter_trends
