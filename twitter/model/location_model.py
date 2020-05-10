@@ -17,6 +17,10 @@ class Location:
     def __init__(self, woeid, name=''):
         self._woeid = woeid
         self._name = name
+        self.update_db()
+
+    def update_db(self):
+        pass
 
     @property
     def get_name(self):
