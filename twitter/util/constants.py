@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 LOCATION_INDIA = "23424848"  # PARENT ID
 LOCATION_INDIA_NAGPUR = "2282863"
@@ -22,6 +23,7 @@ GRAPH = "graphs"
 # location json file
 LOCATION_FILE_NAME = "places.json"  # all woeid
 LOCATION_PATH = os.path.join('twitter', 'util', LOCATION_FILE_NAME)
+ROOT = str(Path(os.path.dirname(os.path.abspath(__file__))).parent.parent)
 KEY_WOEID = 'woeid'
 KEY_PARENT_ID = 'parentid'
 KEY_NAME = 'name'
