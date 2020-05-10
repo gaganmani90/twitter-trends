@@ -1,0 +1,33 @@
+<script>
+         function visualize() {
+
+            var val = document.getElementById("country").value;
+            var opts = document.getElementById('country-list').childNodes;
+            for (var i = 0; i < opts.length; i++) {
+                if (opts[i].value === val) {
+                // An item was selected from the list!
+                // yourCallbackHere()
+                var value = opts[i].getAttribute('data-value')
+
+                //var url = {{url_for('images',location=value)}}
+                window.location = Flask.url_for("images", {"location": value})
+                //window.location = url;
+                //alert(url);
+                break;
+                 }
+            }
+        }
+
+
+</script>
+<h3>Search by location</h3>
+<label for="country">What's your favorite location?</label>
+<form>
+    <input type="text" id="country" name="country" list="country-list">
+    <datalist id="country-list" onselect="">
+        {% for key,value in map.items() %}
+        <option data-value="{{key}}" >{{value}}</option>
+        {% endfor %}
+    </datalist>
+</form>
+<button onclick="visualize()">Submit</button>

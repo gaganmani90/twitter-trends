@@ -3,6 +3,7 @@ import logging
 
 import matplotlib
 from flask import Flask, render_template, send_file
+from flask_jsglue import JSGlue
 
 from twitter.trends_logger import trends_logger
 from twitter.util.location_util import *
@@ -14,6 +15,7 @@ from twitter.model.trend_visualizer import visualize_trends
 from twitter.util.utility_functions import trends_to_string_util
 
 app = Flask(__name__)
+jsglue = JSGlue(app)
 
 
 @app.before_first_request
