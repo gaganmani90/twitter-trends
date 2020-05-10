@@ -15,4 +15,3 @@ gunicorn
 flask-table
 cachetools
 tinydb
-sqlite3
