@@ -73,3 +73,7 @@ li {
   column-fill: auto;
   column-rule: 4px double #ff00ff;
 }
+
+form {
+  text-align: center;
+}
