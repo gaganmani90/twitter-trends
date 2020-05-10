@@ -23,11 +23,11 @@
 <h3>Search by location</h3>
 <label for="country">What's your favorite location?</label>
 <form>
-    <input type="text" id="country" name="country" list="country-list">
-    <datalist id="country-list" onselect="">
+    <input type="text" id="country" name="country" list="country-list" value="Worldwide" onchange="visualize()">
+    <datalist id="country-list" onchange="visualize()">
         {% for key,value in map.items() %}
-        <option data-value="{{key}}" >{{value}}</option>
+        <option data-value="{{key}}">{{value}}</option>
         {% endfor %}
     </datalist>
 </form>
-<button onclick="visualize()">Submit</button>
+<!--<button onclick="visualize()" >Submit</button>-->
