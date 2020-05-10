@@ -8,6 +8,8 @@
 <a name="how-to-use-this-package"></a>
 ## How to use this package
 #### 1. Fork the repository 
+Assuming that you have forked and cloned this repository on your machine.
+
 ```shell script
 git remote -v # check if you have setup my branch as upstream
 git remote add upstream https://github.com/gaganmani90/python-programming.git # if not, add
