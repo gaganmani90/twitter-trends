@@ -8,6 +8,13 @@
 <a name="how-to-use-this-package"></a>
 ## How to use this package
 #### 1. Fork the repository 
+```shell script
+git remote -v # check if you have setup my branch as upstream
+git remote add upstream https://github.com/gaganmani90/python-programming.git # if not, add
+git fetch upstream 
+git merge upstream/master # merge changes from upstream
+git push origin master # sync your master branch with upstream
+```
 #### 2. (optional) Create virtual env
 ```shell script
     virtualenv venv
