@@ -2,10 +2,10 @@
 <body>
 {% block content %}
 <div id={{woeid}}>
-    <h1>Twitter Top Trending Hashtags in {{place}}</h1>
+    <h3>Twitter Top Trending Hashtags in {{place}}</h3>
     <p align="center">
     <ul>
-        <img src="{{url_for('visualize',location=woeid)}}" alt="ranchi">
+        <img src="{{url_for('visualize',location=woeid)}}" alt="{{place}}">
 
     </ul>
 

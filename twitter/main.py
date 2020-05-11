@@ -32,9 +32,9 @@ def home():
     # expensive call (do not uncomment)
     # trends = twitter_trends.trends_by_location(locations.keys())
 
-    trends = twitter_trends.trends_by_location()
-    webpage = trends_to_string_util(trends)
-    return render_template("home.html", message=webpage, map=locations, locations_by_parent=locations_by_parent)
+    #trends = twitter_trends.trends_by_location() # world wide call
+    #webpage = trends_to_string_util(trends)
+    return render_template("home.html", map=locations, locations_by_parent=locations_by_parent)
 
 
 @app.route("/about")

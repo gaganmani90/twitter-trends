@@ -5,18 +5,20 @@
     <title>Twitter Trends</title>
 </head>
 <body>
-
 {% extends "template.html" %}
-
-{% block content %}
-<div id="auto-complete-search">
-    {% include "autocomplete.html" %}
+<div id="page-container">
+    {% block content %}
+    <div id="summary">
+        {% include "summary.html" %}
+    </div>
+    <div id="auto-complete-search">
+        {% include "autocomplete.html" %}
+    </div>
+    <div id="country-list">
+        {% include "country-list.html" %}
+    </div>
+    {% include "footer.html" %}
+    {% endblock %}
 </div>
-
-{% include "country-list.html" %}
-
-{% endblock %}
-{% include "footer.html" %}
-
 </body>
 </html>

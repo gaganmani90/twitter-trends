@@ -8,7 +8,7 @@ from cachetools import cached
 from twitter.data.auth import tweeter_api
 from twitter.data.cache import trends_cache
 from twitter.trends_logger import trends_logger
-from twitter.util.constants import LOCATION_INDIA
+from twitter.util.constants import *
 from twitter.util.location_util import location_from_woeid
 from twitter.util.utility_functions import _parse_trends
 
@@ -17,7 +17,7 @@ sys.path.append(".")
 api = tweeter_api()
 
 
-def trends_by_location(woeids=[LOCATION_INDIA]):
+def trends_by_location(woeids=[LOCATION_WW]):
     """
     returns trending topics/hashtags
     :param woeid:

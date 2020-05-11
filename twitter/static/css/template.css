@@ -1,3 +1,8 @@
+#page-container{
+  position: relative;
+  min-height: 100vh;
+}
+
 .center {
   display: block;
   margin-left: auto;

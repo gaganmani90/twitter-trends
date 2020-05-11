@@ -3,7 +3,7 @@ from twitter.model.trend import Trend
 from twitter.util.location_util import location_from_woeid
 
 
-def _parse_trends(json_data):
+def _parse_trends(json_data) -> list:
     """
     parse the trends which have some volume
     :param json_data:
