@@ -1,1 +1,0 @@
-web: ./bin/run_local.sh
