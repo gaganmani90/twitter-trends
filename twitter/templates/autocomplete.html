@@ -6,14 +6,10 @@
         for (var i = 0; i < opts.length; i++) {
             if (opts[i].value === val) {
                 // An item was selected from the list!
-                // yourCallbackHere()
                 var value = opts[i].getAttribute('data-value')
 
-                //var url = {{url_for('images',location=value)}}
-                location.href = Flask.url_for("images", {"location": value})
-                document.getElementById("content").innerHTML=Flask.url_for("images", {"location": value})
-                //window.location = url;
-                //alert(url);
+                location.href = Flask.url_for("chart.images", {"location": value})
+                document.getElementById("content").innerHTML=Flask.url_for("chart.images", {"location": value})
                 break;
             }
         }

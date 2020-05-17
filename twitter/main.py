@@ -13,9 +13,9 @@ from twitter.util.location_util import *
 matplotlib.use('Agg')
 
 app = Flask(__name__)
-app.register_blueprint(chart)
-app.register_blueprint(home)
-app.register_blueprint(about)
+app.register_blueprint(chart)  # produce chart
+app.register_blueprint(home)  # home page
+app.register_blueprint(about)  # about page
 jsglue = JSGlue(app)
 
 
@@ -25,11 +25,6 @@ def setup():
     trends_logger.info("Initializing ...")
     populate_location_map()
 
-
-@app.route('/images/<location>')
-def images(location):
-    place = location_from_woeid(location)
-    return render_template("images.html", woeid=location, place=place)
 
 
 @app.errorhandler(500)

@@ -1,6 +1,6 @@
 import io
 
-from flask import Blueprint, send_file
+from flask import Blueprint, send_file, render_template
 
 from twitter.model import twitter_trends
 from twitter.model.trend_visualizer import visualize_trends
@@ -8,7 +8,7 @@ from twitter.trends_logger import trends_logger
 from twitter.util.location_util import location_from_woeid
 
 chart = Blueprint('chart', __name__,
-                   template_folder='templates')
+                  template_folder='templates')
 
 
 @chart.route("/visualize/<location>")
@@ -21,3 +21,9 @@ def visualize(location):
     fig.savefig(img)
     img.seek(0)
     return send_file(img, mimetype='image/png')
+
+
+@chart.route('/images/<location>')
+def images(location):
+    place = location_from_woeid(location)
+    return render_template("images.html", woeid=location, place=place)

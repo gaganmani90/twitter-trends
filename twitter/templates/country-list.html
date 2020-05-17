@@ -8,14 +8,14 @@
     <li>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{parent_model.get_woeid}}">
             <a target="_blank" rel="noopener noreferrer"
-               href="{{url_for('images',location=parent_model.get_woeid)}}">{{parent_model.get_name}}:{{children| count}}</a>
+               href="{{url_for('chart.images',location=parent_model.get_woeid)}}">{{parent_model.get_name}}:{{children| count}}</a>
         </button>
         <div id="{{parent_model.get_woeid}}" class="collapse">
             <ul>
                 {% for child in children %}
                 <li>
                     <a target="_blank" rel="noopener noreferrer"
-                       href="{{url_for('images',location=child.get_woeid)}}">{{child.get_name}}</a>
+                       href="{{url_for('chart.images',location=child.get_woeid)}}">{{child.get_name}}</a>
                 </li>
                 {% endfor %}
             </ul>
