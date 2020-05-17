@@ -26,16 +26,23 @@ git push origin master # sync your master branch with upstream
 #### 3. Install dependencies
 Tip: Use `pyenv` to maintain python versions locally.
 
-From root: 
+* Check running python version by using command `python -V`
+* Install python 3.8.0 with pyenv
+```shell script
+pyenv install 3.8.0
+eval "$(pyenv init -)"
+python -V # it should result in 3.8.0
+```
+
+Install pip dependencies: 
 ```shell script
 pip install . # verify python version requirement
 pip freeze -r requirements.txt 
 pip install -r requirements.txt
 pip list #verify package list
-python --version #verify python version
 ```
 
-#### 4. Run
+#### 4. Run (with flask)
 Go to root directory
 * Unit tests run: `pytest`. These runs make twitter api call so be cautious and do not 
 make too many calls.
@@ -46,6 +53,9 @@ make too many calls.
     ```
 * `gunicorn -b :8080 twitter.main:app`: This command will run server with gunicorn. You do not have to use it unless
 you want to deploy it on gcloud.
+
+#### 5. Run (with gunicorn)
+`gunicorn -c twitter/gunicorn_config.py twitter.main:app`
 
 <a name="with-docker"></a>
 ## With Docker 
