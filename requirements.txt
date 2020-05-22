@@ -16,3 +16,4 @@ flask-table
 cachetools
 tinydb
 Flask-JSGlue
+boto3
