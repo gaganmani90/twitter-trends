@@ -58,7 +58,7 @@ you want to deploy it on gcloud.
 `gunicorn -c twitter/gunicorn_config.py twitter.main:app`
 
 <a name="with-docker"></a>
-## With Docker 
+## With Docker (not recommended)
 This is docker compatible application that you can run with docker image as well. 
 * Install docker from [here](https://docs.docker.com/get-docker/) 
 ```shell script
