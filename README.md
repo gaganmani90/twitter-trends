@@ -69,4 +69,11 @@ docker run -p 5001:5001 <image id>
 
 * If you are too lazy to checkout code, you can direclty download docker image from [dockerhub](https://hub.docker.com/repository/docker/gaganmani90/trends/tags)
 
+## Heroku Deployment 
+`git push` will automatically deploy to Heroku. 
 
+```shell script
+heroku logs --tail -a trending-topic-demo # monitor logs
+heroku local # test heroku locally before delpoyment
+heroku local web # test
+```
