@@ -2,6 +2,7 @@ import flag
 from cachetools import cache, cached
 
 from twitter.data.cache import flag_cache
+from twitter.data.external_api.country_flags import country_flag
 
 
 class LocationModel:
@@ -33,18 +34,10 @@ class Location:
     def get_country_code(self):
         return self._country_code
 
-    @staticmethod
-    @cached(flag_cache)
-    def _country_flag(code):
-        try:
-            value = flag.flag(code)
-        except:
-            value = ''
-        return value
 
     @property
     def name_with_flag(self):
-        return self._country_flag(self.get_country_code) + "" + self.get_name
+        return country_flag(self.get_country_code) + "" + self.get_name
 
     @property
     def get_name(self):
