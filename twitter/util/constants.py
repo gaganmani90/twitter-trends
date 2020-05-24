@@ -13,6 +13,7 @@ LOCATION_INDIA_KOLKATA = "2295386"
 SEATTLE = "2490383"
 NY = "2459115"
 
+# twitter trends keys
 TREND_NAME = 'name'
 TREND_VOLUME = 'tweet_volume'
 
@@ -28,6 +29,7 @@ ROOT = str(Path(os.path.dirname(os.path.abspath(__file__))).parent.parent)
 KEY_WOEID = 'woeid'
 KEY_PARENT_ID = 'parentid'
 KEY_NAME = 'name'
+KEY_COUNTRY_CODE = 'countryCode'
 
 LOG_CONFIG_NAME = "logging_config.ini"
 

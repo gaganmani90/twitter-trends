@@ -17,3 +17,4 @@ cachetools
 tinydb
 Flask-JSGlue
 boto3
+emoji-country-flag

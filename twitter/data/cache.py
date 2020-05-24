@@ -3,6 +3,7 @@ from cachetools import TTLCache
 from twitter.trends_logger import trends_logger
 
 trends_cache = TTLCache(maxsize=1000, ttl=3600)
+flag_cache = TTLCache(maxsize=1000, ttl=36000000000)
 
 
 def update_cache(key, value):

@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
-from cachetools import cached
 
-from twitter.data.cache import trends_cache
 from twitter.trends_logger import trends_logger
 from twitter.util.location_util import location_from_woeid
 
