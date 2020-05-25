@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='trendChart.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 </head>
+{% block body %}
 <body>
 <h3>Summary</h3>
-<img src="{{url_for('chart.visualize',location=1)}}" alt="world wide">
+<!--<img src="{{url_for('chart.visualize',location=1)}}" alt="world wide">-->
+<div>
+    <canvas id="summary-canvas" width="20" height="20"></canvas>
+    <script>
+        var url = Flask.url_for("home.raw_chart", {"location": 1})
+        //window.alert(url)
+        $.getJSON(
+            url,
+            function(data) {
+                visualize_chart(data.title,data.topics,data.volumes, "summary-canvas")
+            }
+        );
+
+    </script>
+
+</div>
 </body>
+{% endblock %}
 </html>

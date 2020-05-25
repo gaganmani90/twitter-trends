@@ -8,8 +8,11 @@
                 // An item was selected from the list!
                 var value = opts[i].getAttribute('data-value')
 
-                location.href = Flask.url_for("chart.images", {"location": value})
-                document.getElementById("content").innerHTML=Flask.url_for("chart.images", {"location": value})
+               // location.href = Flask.url_for("chart.images", {"location": value})
+                //document.getElementById("summary").innerHTML=Flask.url_for("chart.images", {"location": value})
+
+                location.href = Flask.url_for("chart.html_chart", {"location": value})
+                document.getElementById("summary").innerHTML=Flask.url_for("chart.html_chart", {"location": value})
                 break;
             }
         }
@@ -19,7 +22,8 @@
 </script>
 <h3>Search by location</h3>
 <label for="country">What's your favorite location?</label>
-<input type="search" id="country" name="country" list="country-list" value="Worldwide" onchange="visualize()">
+<input type="search" id="country" onfocus="this.value=''" name="country" list="country-list"
+       onchange="visualize()" placeholder="India">
 <datalist id="country-list" onchange="visualize()">
     {% for key,value in map.items() %}
     <option data-value="{{key}}">{{value}}</option>

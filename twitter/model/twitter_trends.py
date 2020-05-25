@@ -4,7 +4,6 @@ import sys
 
 from cachetools import cached
 
-from twitter.data.auth import tweeter_api
 from twitter.data.cache import trends_cache
 from twitter.data.external_api.tweepy_caller import trends_place
 from twitter.trends_logger import trends_logger
@@ -31,6 +30,11 @@ def trends_by_location(woeids=[LOCATION_WW]):
 
 @cached(trends_cache)
 def _trend_for_one_location(woeid):
+    """
+    returns list of Trends for given location
+    :param woeid: geo location such as 1 fot Worldwide
+    :return:
+    """
     trends_logger.info("Twitter API call: trends_place api call for {}".format(location_from_woeid(woeid)))
     india_trends = trends_place(woeid)
     trends = json.loads(json.dumps(india_trends))

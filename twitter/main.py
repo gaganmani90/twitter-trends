@@ -26,7 +26,6 @@ def setup():
     populate_location_map()
 
 
-
 @app.errorhandler(500)
 def server_error(e):
     trends_logger.exception('An error occurred during a request.')

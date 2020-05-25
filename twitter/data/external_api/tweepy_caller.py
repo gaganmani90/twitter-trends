@@ -2,9 +2,6 @@ from cachetools import cached
 
 from twitter.data.auth import tweeter_api
 from twitter.data.cache import trends_cache
-from functools import wraps
-from time import time
-
 from twitter.data.execution_time import timed
 
 api = tweeter_api()

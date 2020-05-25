@@ -2,7 +2,14 @@
   position: relative;
   min-height: 100vh;
 }
-
+canvas#summary-canvas{
+  width:50vw; !important;
+  height: 30vh; !important;
+}
+canvas#myChart{
+  width:100vw; !important;
+  height: 70vh; !important;
+}
 .center {
   display: block;
   margin-left: auto;
@@ -66,9 +73,9 @@ input[type=submit] {
 }
 
 li {
-    display: block;
-    width: 25%;
-    float: left;
+  display: block;
+  width: 25%;
+  float: left;
 }
 
 .trends_list {
