@@ -10,8 +10,8 @@
 <body>
 <h3>Summary</h3>
 <!--<img src="{{url_for('chart.visualize',location=1)}}" alt="world wide">-->
-<div>
-    <canvas id="summary-canvas" width="20" height="20"></canvas>
+<div style="height: 100vh;">
+    <canvas id="summary-canvas"></canvas>
     <script>
         var url = Flask.url_for("home.raw_chart", {"location": 1})
         //window.alert(url)

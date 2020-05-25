@@ -21,7 +21,9 @@ function visualize_chart(title, topics, volume, id) {
             }]
         },
         options: {
-            maintainAspectRatio: false,
+            responsiveAnimationDuration: 0,
+            maintainAspectRatio: true,
+            aspectRatio: 2,
             responsive: true,
             title: {
                 display: true,

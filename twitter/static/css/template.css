@@ -2,14 +2,6 @@
   position: relative;
   min-height: 100vh;
 }
-canvas#summary-canvas{
-  width:50vw; !important;
-  height: 30vh; !important;
-}
-canvas#myChart{
-  width:100vw; !important;
-  height: 70vh; !important;
-}
 .center {
   display: block;
   margin-left: auto;
