@@ -5,18 +5,10 @@
 </head>
 <body>
 {% extends "template.html" %}
-
-
-<div id="page-container">
-    {% block content %}
-    <h1> About Trends </h1>
+{% block content %}
+<h1> About Trends </h1>
 <p> Trending topics across world</p>
-    <div id="country-list">
-        {% include "country-list.html" %}
-    </div>
-</div>
 {% include "footer.html" %}
 {% endblock %}
-
 </body>
 </html>
