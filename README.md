@@ -76,4 +76,17 @@ docker run -p 5001:5001 <image id>
 heroku logs --tail -a trending-topic-demo # monitor logs
 heroku local # test heroku locally before delpoyment
 heroku local web # test
+heroku config:get JAWSDB_MARIA_URL -a trending-topic-demo  # get database url
+heroku addons:open jawsdb-maria  # open database page 
+```
+
+## Database credentials
+* Create `twitter/password.ini` in the following format with db credentials:
+```
+[database]
+Host=
+Username=
+Password=
+Port=3306
+Database=
 ```

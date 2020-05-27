@@ -16,3 +16,4 @@ twitter.egg-info
 test/database/twitter_trends
 twitter/data/database/test.db
 twitter/data/database/twitter_trends
+twitter/password.ini
