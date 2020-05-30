@@ -80,7 +80,7 @@ heroku config:get JAWSDB_MARIA_URL -a trending-topic-demo  # get database url
 heroku addons:open jawsdb-maria  # open database page 
 ```
 
-## Database credentials
+## Database credentials (only required for local development)
 * Create `twitter/password.ini` in the following format with db credentials:
 ```
 [database]

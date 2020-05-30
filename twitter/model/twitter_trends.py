@@ -36,7 +36,9 @@ def _trend_for_one_location(woeid):
     :return:
     """
     trends_logger.info("Twitter API call: trends_place api call for {}".format(location_from_woeid(woeid)))
-    india_trends = trends_place(woeid)
-    trends = json.loads(json.dumps(india_trends))
-    fields = _parse_trends(trends[0])
+    twitter_trends = trends_place(woeid)
+    trends = json.loads(json.dumps(twitter_trends))
+    print(trends)
+    fields = _parse_trends(woeid, trends[0])
+    print(fields)
     return fields

@@ -2,13 +2,13 @@ import matplotlib.pyplot as plt
 
 from twitter.model import twitter_trends
 from twitter.trends_logger import trends_logger
-from twitter.util.location_util import location_from_woeid
+from twitter.util.location_util import location_from_woeid, TREND_HARD_LIMIT
 
 
 def _visualize_trend(location, trend):
     trends_logger.info("Visualizing {}".format(location))
-    topic = [x.name for idx, x in enumerate(trend[:20])]
-    volume = [x.volume for idx, x in enumerate(trend[:20])]
+    topic = [x.name for idx, x in enumerate(trend[:TREND_HARD_LIMIT])]
+    volume = [x.volume for idx, x in enumerate(trend[:TREND_HARD_LIMIT])]
     figure = _get_graph_figure(labels=['volume', 'trends'], values=[topic, volume], title=location)
     return figure
 
@@ -38,7 +38,7 @@ def visualize_trends(trends: dict):
     return figures
 
 
-def graph_labels_by_woeid(woeid: int, limit=20):
+def graph_labels_by_woeid(woeid: int, limit=TREND_HARD_LIMIT):
     """
 
     :param woeid: location geo id

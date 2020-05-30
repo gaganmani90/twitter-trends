@@ -37,3 +37,6 @@ LOG_CONFIG_NAME = "logging_config.ini"
 DB_NAME = 'twitter_trends'
 TABLE_LOCATION = 'LOCATION'
 TABLE_TREND = 'TREND'
+
+TREND_HARD_LIMIT = 20;
+ENABLE_DB = True

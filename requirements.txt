@@ -21,3 +21,4 @@ emoji-country-flag
 mysql-connector-python
 setuptools
 Flask-Testing
+flask-mysql

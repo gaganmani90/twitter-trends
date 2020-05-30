@@ -1,12 +1,13 @@
 import logging
 
 import matplotlib
-from flask import Flask, render_template
+from flask import Flask
 from flask_jsglue import JSGlue
 
 from twitter.blueprints.bp_about import about
 from twitter.blueprints.bp_home import home
 from twitter.blueprints.bp_image import chart
+from twitter.data.database.db import DBConnection
 from twitter.trends_logger import trends_logger
 from twitter.util.location_util import *
 
@@ -18,11 +19,14 @@ app.register_blueprint(home)  # home page
 app.register_blueprint(about)  # about page
 jsglue = JSGlue(app)
 
+with app.app_context():
+    DBConnection.init_db(app)
+
 
 @app.before_first_request
 def setup():
     logging.basicConfig(level=logging.INFO)
-    trends_logger.info("Initializing ...")
+    trends_logger.info("Initializing application...")
     populate_location_map()
 
 
