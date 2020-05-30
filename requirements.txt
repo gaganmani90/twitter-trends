@@ -20,4 +20,4 @@ boto3
 emoji-country-flag
 mysql-connector-python
 setuptools
-mariadb
+Flask-Testing
