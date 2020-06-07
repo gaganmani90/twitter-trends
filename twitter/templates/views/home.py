@@ -1,12 +1,11 @@
-import json
-
 from flask import Blueprint, render_template, jsonify
 
 from twitter.model.trend_visualizer import graph_labels_by_woeid
 from twitter.util.location_util import woeid_to_location_map, location_models
 
 home = Blueprint('home', __name__,
-                 template_folder='templates')
+                 template_folder='templates',
+                 static_folder='templates/static')
 
 
 @home.route("/")

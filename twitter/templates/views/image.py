@@ -2,14 +2,15 @@ import io
 
 from flask import Blueprint, send_file, render_template
 
-from twitter.blueprints.bp_home import raw_chart
 from twitter.model import twitter_trends
 from twitter.model.trend_visualizer import visualize_trends
+from twitter.templates.views.home import raw_chart
 from twitter.trends_logger import trends_logger
 from twitter.util.location_util import location_from_woeid
 
 chart = Blueprint('chart', __name__,
-                  template_folder='templates')
+                  template_folder='templates',
+                  static_folder='templates/static')
 
 
 @chart.route("/visualize/<location>")

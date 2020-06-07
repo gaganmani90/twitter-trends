@@ -1,0 +1,11 @@
+{
+  "name": "twitter-trends",
+  "version": "1.0.0",
+  "description": "Twitter trends application",
+  "scripts": {
+    "start": "live-server --port=8080"
+  },
+  "keywords": [],
+  "author": "Gagan Mani(gaganmani90@gmail.com)",
+  "license": "ISC"
+}
