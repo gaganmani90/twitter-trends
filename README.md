@@ -4,6 +4,7 @@
 
 <a name="trends"></a>
 # Trends
+Website: https://trending-topic-demo.herokuapp.com/
 
 <a name="how-to-use-this-package"></a>
 ## How to use this package
@@ -69,7 +70,7 @@ docker run -p 5001:5001 <image id>
 
 * If you are too lazy to checkout code, you can direclty download docker image from [dockerhub](https://hub.docker.com/repository/docker/gaganmani90/trends/tags)
 
-## Heroku Deployment 
+## Heroku Deployment
 `git push` will automatically deploy to Heroku. 
 
 ```shell script
